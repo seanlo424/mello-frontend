@@ -55,10 +55,11 @@ class Board {
 	}
 
 	addCard(listId, cardText) {
-		var list = this.findList(listId);
-		if (list) {
-			list.addCard(cardText);
-		}
+		this.lists.forEach(function(list) {
+			if (listId === list.id) {
+				list.addCard(cardText);
+			}
+		}); 
 	}
 
 	editCard(cardId, cardText) {

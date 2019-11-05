@@ -35,6 +35,17 @@ function handleListEdit(event) {
 	}
 }
 
+function handleCardEdit(event) {
+	var cardId = Number(event.target.getAttribute('data-id'));
+
+	var cardText = prompt('New card text') || '';
+
+	if (cardText.trim()) {
+		board.editCard(cardId, cardText);
+		renderBoard();
+	}
+}
+
 
 function renderBoard() {
 	$boardContainer.innerHTML = '';
